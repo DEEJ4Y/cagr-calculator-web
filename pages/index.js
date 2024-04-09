@@ -3,7 +3,7 @@ import { Button, Stack, Title, Text, Group } from '@mantine/core';
 import Link from 'next/link';
 
 export default function Home() {
-  const [xirr] = useCalculatedXirr();
+  const [xirr, _, resetTrades] = useCalculatedXirr();
 
   return (
     <Stack p="md">
@@ -13,11 +13,7 @@ export default function Home() {
         <Link href="/upload">
           <Button variant="filled">Upload</Button>
         </Link>
-        <Button
-          variant="outline"
-          color="red"
-          onClick={() => localStorage.setItem('allTrades', '[]')}
-        >
+        <Button variant="outline" color="red" onClick={() => resetTrades()}>
           Reset Saved Trades
         </Button>
       </Group>

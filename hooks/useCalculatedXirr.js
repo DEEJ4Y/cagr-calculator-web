@@ -10,6 +10,11 @@ function useCalculatedXirr() {
     recalculateXirr([]);
   }, [router.pathname]);
 
+  const resetTrades = () => {
+    localStorage.setItem('allTrades', '[]');
+    setXirr(0);
+  };
+
   const recalculateXirr = (newTrades = []) => {
     const allTrades = [];
 
@@ -143,7 +148,7 @@ function useCalculatedXirr() {
     setXirr(newXirrValue);
   };
 
-  return [xirrValue, recalculateXirr];
+  return [xirrValue, recalculateXirr, resetTrades];
 }
 
 export default useCalculatedXirr;
