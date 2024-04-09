@@ -12,6 +12,13 @@ export default function Home() {
       <Link href="/upload">
         <Button variant="filled">Upload</Button>
       </Link>
+      <Button
+        variant="outline"
+        color="red"
+        onClick={() => localStorage.setItem('allTrades', '[]')}
+      >
+        Reset Saved Trades
+      </Button>
       Your XIRR is: {(100 * xirr).toFixed(2)}%
     </Stack>
   );
